@@ -1,7 +1,7 @@
-from django.db import models
-from django.db.models.deletion import DO_NOTHING
+from uuid import uuid4
 
-# Create your models here.
+from django.db import models
+
 
 
 class Author(models.Model):
@@ -72,7 +72,7 @@ class PortfolioType(models.Model):
 
 class Portfolio(models.Model):
     type = models.ForeignKey(PortfolioType, on_delete=models.DO_NOTHING)
-    client = models.ForeignKey(Client, on_delete=DO_NOTHING)
+    client = models.ForeignKey(Client, on_delete=models.DO_NOTHING)
     category = models.ForeignKey(PortfolioCategory, on_delete=models.DO_NOTHING)
     description = models.TextField(null=True, blank=True)
     time_work = models.SmallIntegerField(default=0, null=True, blank=True)
@@ -85,3 +85,12 @@ class Portfolio(models.Model):
     photo2 = models.ImageField(upload_to="portfolio", null=True, blank=True)
     photo3 = models.ImageField(upload_to="portfolio", null=True, blank=True)
     photo4 = models.ImageField(upload_to="portfolio", null=True, blank=True)
+
+
+class Newsletter(models.Model):
+    email = models.EmailField()
+    name = models.CharField(max_length=128)
+    activate = models.BooleanField(default=False)
+    secret_number = models.UUIDField(default=uuid4, unique=True, editable=False)
+    date_activate = models.DateTimeField(auto_now=True)
+    date_created = models.DateTimeField(auto_now_add=True)

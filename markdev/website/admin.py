@@ -1,5 +1,4 @@
 from django.contrib import admin
-from django.contrib.admin.filters import ListFilter
 
 from .models import (
     Author,
@@ -12,6 +11,7 @@ from .models import (
     Client,
     Portfolio,
     PortfolioTechnology,
+    Newsletter,
 )
 
 
@@ -154,3 +154,17 @@ class PortfolioTechnologyAdmin(admin.ModelAdmin):
         "name",
     ]
     search_fields = ("name",)
+
+
+@admin.register(Newsletter)
+class NewsletterAdmin(admin.ModelAdmin):
+    exclude = []
+    list_display = [
+        "email",
+        "date_created",
+        "activate",
+    ]
+    list_filter = [
+        "activate",
+    ]
+    search_fields = ("email",)
