@@ -3,7 +3,6 @@ from uuid import uuid4
 from django.db import models
 
 
-
 class Author(models.Model):
     name = models.CharField(max_length=32)
     lastname = models.CharField(max_length=32)
@@ -26,6 +25,9 @@ class CategoryArticle(models.Model):
 class Tag(models.Model):
     name = models.CharField(max_length=64)
 
+    def __str__(self):
+        return self.name
+
 
 class Article(models.Model):
     title = models.CharField(max_length=128)
@@ -37,12 +39,15 @@ class Article(models.Model):
     category = models.ManyToManyField(CategoryArticle)
     tag = models.ManyToManyField(Tag)
 
+    def __str__(self):
+        return self.title
+
 
 class Comment(models.Model):
     author = models.CharField(max_length=32)
     description = models.TextField()
     accepted = models.BooleanField(default=False)
-    article = models.OneToOneField(Article, on_delete=models.CASCADE)
+    article = models.ForeignKey(Article, on_delete=models.CASCADE)
     parent = models.ForeignKey(
         "self", on_delete=models.DO_NOTHING, blank=True, null=True
     )
