@@ -1,7 +1,15 @@
 from django.db import models
 from rest_framework import serializers
 
-from .models import Article, Comment
+from .models import (
+    Article,
+    Comment,
+    Author,
+    CategoryArticle,
+    TagArticle,
+    Client,
+    PortfolioCategory,
+)
 
 
 class ArticleSerializer(serializers.ModelSerializer):
@@ -20,4 +28,37 @@ class ArticleSerializer(serializers.ModelSerializer):
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
-        fields = ["author", "description", "parent", "date_created", "article"]
+        fields = [
+            "author",
+            "description",
+            "parent",
+            "date_created",
+            "article",
+        ]
+
+
+class AuthorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Author
+        fields = [
+            "name",
+            "lastname",
+            "photo",
+        ]
+
+
+class CategoryArticleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CategoryArticle
+        fields = [
+            "name",
+            "parent",
+        ]
+
+
+class TagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TagArticle
+        fields = [
+            "name",
+        ]
