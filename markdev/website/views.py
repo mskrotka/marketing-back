@@ -42,3 +42,4 @@ class CategoryArticleView(generics.ListAPIView):
 class TagListView(generics.ListAPIView):
     serializer_class = TagSerializer
     queryset = TagArticle.objects
+    odejlaem
