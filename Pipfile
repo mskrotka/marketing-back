@@ -8,8 +8,11 @@ django = "*"
 djangorestframework = "*"
 markdown = "*"
 django-filter = "*"
+pillow = "*"
+black = "*"
 
 [dev-packages]
+black = "*"
 
 [requires]
 python_version = "3.8"

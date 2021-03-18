@@ -3,7 +3,7 @@ from django.contrib import admin
 from .models import (
     Author,
     CategoryArticle,
-    Tag,
+    TagArticle,
     Article,
     PortfolioCategory,
     Comment,
@@ -59,7 +59,7 @@ class CategoryArticleAdmin(admin.ModelAdmin):
     search_fields = ("name",)
 
 
-@admin.register(Tag)
+@admin.register(TagArticle)
 class TagAdmin(admin.ModelAdmin):
     exclude = []
     list_display = [
