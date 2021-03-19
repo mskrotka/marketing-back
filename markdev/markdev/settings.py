@@ -124,4 +124,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "public", "media")
 
 STATIC_URL = "/static/"
 MEDIA_URL = "/media/"
-jakies zmiany
+jakies zmianyv563253453ver  eiuev uthw54y456
