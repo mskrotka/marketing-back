@@ -1,0 +1,30 @@
+[
+    {
+        "model": "website.PortfolioCategory",
+        "pk": 1,
+        "fields": {
+            "name": "wizerunek"
+        }
+    },
+    {
+        "model": "website.PortfolioCategory",
+        "pk": 2,
+        "fields": {
+            "name": "online"
+        }
+    },
+    {
+        "model": "website.PortfolioCategory",
+        "pk": 3,
+        "fields": {
+            "name": "ads"
+        }
+    },
+    {
+        "model": "website.PortfolioCategory",
+        "pk": 4,
+        "fields": {
+            "name": "inne"
+        }
+    }
+]

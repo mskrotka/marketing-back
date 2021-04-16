@@ -7,7 +7,6 @@ from .models import (
     Article,
     PortfolioCategory,
     Comment,
-    PortfolioType,
     Client,
     Portfolio,
     PortfolioTechnology,
@@ -105,31 +104,16 @@ class ClientAdmin(admin.ModelAdmin):
 class ProtfolioAdmin(admin.ModelAdmin):
     exclude = []
     list_display = [
-        "type",
         "client",
         "index",
     ]
     list_filter = [
-        "type",
         "index",
     ]
     search_fields = (
         "client",
-        "type",
         "description",
     )
-
-
-@admin.register(PortfolioType)
-class PortfolioTypeAdmin(admin.ModelAdmin):
-    exclude = []
-    list_display = [
-        "name",
-    ]
-    list_filter = [
-        "name",
-    ]
-    search_fields = ("name",)
 
 
 @admin.register(PortfolioCategory)
