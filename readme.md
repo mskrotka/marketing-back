@@ -1,1 +1,1 @@
-# Portfolio Michał Świderki
+# Portfolio Michał Świderski
