@@ -41,5 +41,4 @@ jobs:
           key: ${{ secrets.MAIN_KEY }}
           port: 22
           script: |
-            cd markdev/
             docker-compose up --build -d
