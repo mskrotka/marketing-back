@@ -21,7 +21,7 @@ jobs:
           key: ${{ secrets.MAIN_KEY }}
           port: 22
           script: |
-            cd markdev
+            cd markdev/
             docker-compose down
       - name: Sync
         run: |
@@ -41,5 +41,5 @@ jobs:
           key: ${{ secrets.MAIN_KEY }}
           port: 22
           script: |
-            cd markdev
+            cd markdev/
             docker-compose up --build -d
