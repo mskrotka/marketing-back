@@ -1,0 +1,18 @@
+[
+    {
+        "model": "website.Client",
+        "pk": 1,
+        "fields": {
+            "name": "Klient 1",
+            "logo": "facebook-Logo.png"
+        }
+    },
+    {
+        "model": "website.Client",
+        "pk": 2,
+        "fields": {
+            "name": "Klient 2",
+            "logo": "google-Logo.png"
+        }
+    }
+]

@@ -36,6 +36,7 @@ class Article(models.Model):
     author = models.ForeignKey(Author, on_delete=models.DO_NOTHING)
     date_created = models.DateTimeField(auto_now_add=True)
     date_edit = models.DateTimeField(auto_now=True)
+    date_public = models.DateTimeField(blank=True, null=True)
     category = models.ManyToManyField(CategoryArticle)
     tag = models.ManyToManyField(TagArticle)
 
@@ -68,15 +69,7 @@ class PortfolioTechnology(models.Model):
     photo = models.ImageField(upload_to="technology")
 
 
-class PortfolioType(models.Model):
-    name = models.CharField(max_length=128)
-
-    def __str__(self):
-        return self.name
-
-
 class Portfolio(models.Model):
-    type = models.ForeignKey(PortfolioType, on_delete=models.DO_NOTHING)
     client = models.ForeignKey(Client, on_delete=models.DO_NOTHING)
     category = models.ForeignKey(PortfolioCategory, on_delete=models.DO_NOTHING)
     description = models.TextField(null=True, blank=True)
@@ -99,3 +92,8 @@ class Newsletter(models.Model):
     secret_number = models.UUIDField(default=uuid4, unique=True, editable=False)
     date_activate = models.DateTimeField(auto_now=True)
     date_created = models.DateTimeField(auto_now_add=True)
+
+class ContactForm(models.Model):
+    email = models.EmailField()
+    name = models.CharField(max_length=128)
+    message = models.TextField()

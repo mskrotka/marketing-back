@@ -8,8 +8,9 @@ from .serializers import (
     AuthorSerializer,
     CategoryArticleSerializer,
     TagSerializer,
+    ContactFormSerializer,
 )
-from .models import Article, Comment, Author, CategoryArticle, TagArticle
+from .models import Article, Comment, Author, CategoryArticle, TagArticle, ContactForm
 from .utils.filters import CommentsToArcitleFilter
 
 
@@ -42,4 +43,8 @@ class CategoryArticleView(generics.ListAPIView):
 class TagListView(generics.ListAPIView):
     serializer_class = TagSerializer
     queryset = TagArticle.objects
-    do mergowania
+
+
+class ContactFormView(generics.CreateAPIView):
+    serializer_class = ContactFormSerializer
+    queryser = ContactForm.objects

@@ -9,6 +9,7 @@ from .models import (
     TagArticle,
     Client,
     PortfolioCategory,
+    ContactForm,
 )
 
 
@@ -61,4 +62,13 @@ class TagSerializer(serializers.ModelSerializer):
         model = TagArticle
         fields = [
             "name",
+        ]
+
+class ContactFormSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ContactForm
+        fields = [
+            "email",
+            "name",
+            "message",
         ]

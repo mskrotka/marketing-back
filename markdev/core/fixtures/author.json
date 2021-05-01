@@ -1,0 +1,11 @@
+[
+    {
+        "model": "website.Author",
+        "pk": 1,
+        "fields": {
+            "name": "Michał",
+            "lastname": "Świderski",
+            "photo": "e-mail_marketing.jpg"
+        }
+    }
+]

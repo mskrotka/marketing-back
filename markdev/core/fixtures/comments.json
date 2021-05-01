@@ -1,0 +1,58 @@
+[
+    {
+        "model": "website.Comment",
+        "pk": 1,
+        "fields": {
+            "author": "Mariusz",
+            "description": "Bardzo ciekawy artykuł",
+            "accepted": "True",
+            "article": 1,
+            "date_created": "2021-01-01T13:20:30+03:00"
+        }
+    },
+    {
+        "model": "website.Comment",
+        "pk": 3,
+        "fields": {
+            "author": "Marek",
+            "description": "Potwierdzam",
+            "accepted": "True",
+            "article": 1,
+            "parent": 1,
+            "date_created": "2021-01-03T13:20:30+03:00"
+        }
+    },
+    {
+        "model": "website.Comment",
+        "pk": 2,
+        "fields": {
+            "author": "Maja",
+            "description": "Jednak chyba nie bardzo",
+            "accepted": "True",
+            "article": 1,
+            "date_created": "2021-01-02T13:20:30+03:00"
+        }
+    },
+    {
+        "model": "website.Comment",
+        "pk": 4,
+        "fields": {
+            "author": "Justyna",
+            "description": "Komentarz rozpoczyna się od przedstawienia faktów, które zamierza się skomentować, a następnie zamieszczane są własne opinie na dany temat. W tego typu wypowiedziach można używać słów nacechowanych emocjonalnie, by poprzez nie wpływać na czytelnika.",
+            "accepted": "False",
+            "article": 1,
+            "date_created": "2021-01-02T13:20:30+03:00"
+        }
+    },
+    {
+        "model": "website.Comment",
+        "pk": 5,
+        "fields": {
+            "author": "Włodzimierz",
+            "description": "Komentarz rozpoczyna się od przedstawienia faktów, które zamierza się skomentować, a następnie zamieszczane są własne opinie na dany temat. W tego typu wypowiedziach można używać słów nacechowanych emocjonalnie, by poprzez nie wpływać na czytelnika.",
+            "accepted": "True",
+            "article": 2,
+            "date_created": "2021-01-02T13:20:30+03:00"
+        }
+    }
+]

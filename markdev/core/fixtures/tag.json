@@ -1,0 +1,27 @@
+[
+    {
+        "model": "website.TagArticle",
+        "pk": 1,
+        "fields": {
+            "name": "przykładowy tag 1"
+        }
+    },{
+        "model": "website.TagArticle",
+        "pk": 2,
+        "fields": {
+            "name": "przykładowy tag 2"
+        }
+    },{
+        "model": "website.TagArticle",
+        "pk": 3,
+        "fields": {
+            "name": "przykładowy tag 3"
+        }
+    },{
+        "model": "website.TagArticle",
+        "pk": 4,
+        "fields": {
+            "name": "przykładowy tag 4"
+        }
+    }
+]

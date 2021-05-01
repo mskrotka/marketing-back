@@ -1,0 +1,38 @@
+version: "3.8"
+
+networks:
+  net:
+
+services:
+  db:
+    image: postgres:13.2
+    networks:
+      net:
+        aliases:
+          - db
+    environment:
+      - POSTGRES_DB=markdev_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  markdev:
+    networks:
+      net:
+        aliases:
+          - markdev
+    environment:
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/markdev_db
+    build: .
+    command: >
+      bash -c "cd markdev && python manage.py makemigrations
+      && python manage.py migrate
+      && python manage.py loaddata core/fixtures/*.json
+      && python manage.py runserver 0.0.0.0:80"
+    volumes:
+      - .:/app
+    ports:
+      - "80:80"

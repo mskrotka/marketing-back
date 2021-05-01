@@ -1,0 +1,26 @@
+[
+    {
+        "model": "website.PortfolioTechnology",
+        "pk": 1,
+        "fields": {
+            "name": "wielojezycznosc",
+            "photo": "technology/wielojezycznosc53.png"
+        }
+    },
+    {
+        "model": "website.PortfolioTechnology",
+        "pk": 2,
+        "fields": {
+            "name": "responsywność",
+            "photo": "technology/rwd.png"
+        }
+    },
+    {
+        "model": "website.PortfolioTechnology",
+        "pk": 3,
+        "fields": {
+            "name": "nowoczesnta templatka",
+            "photo": "technology/themeforest.png"
+        }
+    }
+]

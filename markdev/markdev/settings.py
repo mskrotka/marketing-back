@@ -9,7 +9,8 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-import os
+import os, dj_database_url
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -21,7 +22,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "d55b&3zs6t&urj0l8j*o2+tjhw#(ne$m&@+ll=ebpnxrt=c&8s"
+# SECRET_KEY = "d55b&3zs6t&urj0l8j*o2+tjhw#(ne$m&@+ll=ebpnxrt=c&8s"
+SECRET_KEY = os.getenv("DJANGO_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,9 +40,13 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    # Aplikacje
-    "website",
+    # Paczki
     "rest_framework",
+    'rest_framework_swagger',
+    # Aplikacje
+    "website.apps.WebsiteConfig",
+    # Zasoby
+    "core.apps.CoreConfig",
 ]
 
 MIDDLEWARE = [
@@ -67,22 +73,17 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
             ],
+            'libraries': {
+                    'staticfiles': 'django.templatetags.static',
+                 },
         },
     },
 ]
 
 WSGI_APPLICATION = "markdev.wsgi.application"
+REST_FRAMEWORK = { 'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema' }
 
-
-# Database
-# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
-}
+DATABASES = {"default": dj_database_url.config(conn_max_age=600)}
 
 
 # Password validation
@@ -124,4 +125,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "public", "media")
 
 STATIC_URL = "/static/"
 MEDIA_URL = "/media/"
-jakies zmianyv563253453ver  eiuev uthw54y456srthrsth

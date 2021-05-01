@@ -1,0 +1,17 @@
+[
+    {
+        "model": "auth.User",
+        "pk": 1,
+        "fields": {
+            "username": "michal",
+            "first_name": "Michał",
+            "last_name": "Świderski",
+            "email": "swider1000@wp.pl",
+            "password": "pbkdf2_sha256$260000$S1I7x1FYyCt4LrFLHcHFbR$7W/X9u5Cx8ro00W7dxDANee73HN4esmHiCo1AI15zz0=",
+            "is_staff": "True",
+            "is_active": "True",
+            "is_superuser": "True"
+        }
+    }
+]
+

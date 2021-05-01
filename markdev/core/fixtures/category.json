@@ -1,0 +1,48 @@
+[
+
+    {
+        "model": "website.CategoryArticle",
+        "pk": 1,
+        "fields":{
+            "name": "Marketing"
+        }
+    },
+    {
+        "model": "website.CategoryArticle",
+        "pk": 4,
+        "fields":{
+            "name": "Tworzenie marki",
+            "parent": 1
+        }
+    },
+    {
+        "model": "website.CategoryArticle",
+        "pk": 2,
+        "fields":{
+            "name": "Programowanie"
+        }
+    },
+    {
+        "model": "website.CategoryArticle",
+        "pk": 5,
+        "fields":{
+            "name": "Fronted",
+            "parent": 2
+        }
+    },
+    {
+        "model":"website.CategoryArticle",
+        "pk": 6,
+        "fields":{
+            "name":"Backend",
+            "parent": 2
+        }
+    },
+    {
+        "model":"website.CategoryArticle",
+        "pk": 3,
+        "fields":{
+            "name":"Inne"
+        }
+    }
+]
