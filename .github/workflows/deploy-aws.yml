@@ -41,4 +41,5 @@ jobs:
           key: ${{ secrets.MAIN_KEY }}
           port: 22
           script: |
+            ls -a
             docker-compose up --build -d
