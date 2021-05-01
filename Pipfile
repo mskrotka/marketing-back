@@ -11,6 +11,7 @@ django-filter = "*"
 pillow = "*"
 psycopg2-binary = "*"
 dj-database-url = "*"
+django-rest-swagger = "*"
 
 [dev-packages]
 black = "==20.8b1"

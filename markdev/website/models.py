@@ -92,3 +92,8 @@ class Newsletter(models.Model):
     secret_number = models.UUIDField(default=uuid4, unique=True, editable=False)
     date_activate = models.DateTimeField(auto_now=True)
     date_created = models.DateTimeField(auto_now_add=True)
+
+class ContactForm(models.Model):
+    email = models.EmailField()
+    name = models.CharField(max_length=128)
+    message = models.TextField()

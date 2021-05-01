@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # Paczki
     "rest_framework",
+    'rest_framework_swagger',
     # Aplikacje
     "website.apps.WebsiteConfig",
     # Zasoby
@@ -72,12 +73,15 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
             ],
+            'libraries': {
+                    'staticfiles': 'django.templatetags.static',
+                 },
         },
     },
 ]
 
 WSGI_APPLICATION = "markdev.wsgi.application"
-
+REST_FRAMEWORK = { 'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema' }
 
 DATABASES = {"default": dj_database_url.config(conn_max_age=600)}
 

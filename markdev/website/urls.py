@@ -1,4 +1,6 @@
 from django.urls import path
+from rest_framework_swagger.views import get_swagger_view
+from django.conf.urls import url
 
 from .views import (
     ArticleListView,
@@ -7,6 +9,7 @@ from .views import (
     AuthorListView,
     AuthorView,
     TagListView,
+    ContactFormView,
 )
 
 urlpatterns = [
@@ -21,4 +24,9 @@ urlpatterns = [
 
     # Pojedyńcze instancje - GET
     path("author/<int:pk>", AuthorView.as_view(), name="author"),
+
+    # Pjedyńcze instacje - POST
+    path("contact-form/", ContactFormView.as_view(), name="contact_form"),
+
+    path("swagger/", get_swagger_view(title='michal-swiderski.pl'))
 ]

@@ -11,6 +11,7 @@ from .models import (
     Portfolio,
     PortfolioTechnology,
     Newsletter,
+    ContactForm,
 )
 
 
@@ -150,5 +151,17 @@ class NewsletterAdmin(admin.ModelAdmin):
     ]
     list_filter = [
         "activate",
+    ]
+    search_fields = ("email",)
+
+
+@admin.register(ContactForm)
+class ContactFormAdmin(admin.ModelAdmin):
+    exclude = []
+    list_display = [
+        "email",
+    ]
+    list_filter = [
+        "email",
     ]
     search_fields = ("email",)
