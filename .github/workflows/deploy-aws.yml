@@ -1,0 +1,45 @@
+name: Deploy to main
+on: 
+  push:
+    branches:
+      - main
+    
+
+jobs:
+  staging_deploy:
+    runs-on: ubuntu-18.04
+  
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Compose down
+        uses: appleboy/ssh-action@master
+        continue-on-error: true
+        with:
+          host: ${{ secrets.MAIN_HOST }}
+          username: ${{ secrets.MAIN_USER }}
+          key: ${{ secrets.MAIN_KEY }}
+          port: 22
+          script: |
+            cd finaen/
+            docker-compose down
+      - name: Sync
+        run: |
+          echo "${{secrets.MAIN_KEY}}" > main_key
+          chmod 600 ./main_key
+          rsync -chav \
+            -e 'ssh -i ./main_key -o StrictHostKeyChecking=no' \
+            --exclude /main_key \
+            --exclude /.git/ \
+            --exclude /.github/ \
+            . ${{ secrets.DESTINATION }}
+      - name: Compose up
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.MAIN_HOST }}
+          username: ${{ secrets.MAIN_USER }}
+          key: ${{ secrets.MAIN_KEY }}
+          port: 22
+          script: |
+            cd markdev/
+            docker-compose up --build -d
