@@ -21,7 +21,7 @@ jobs:
           key: ${{ secrets.MAIN_KEY }}
           port: 22
           script: |
-            cd finaen/
+            touch dupa.txt
             docker-compose down
       - name: Sync
         run: |
