@@ -23,6 +23,9 @@ jobs:
           script: |
             cd marketing-back/
             docker-compose down
+            sudo -s
+            rm -rf db
+            exit
       - name: Sync
         run: |
           echo "${{secrets.MAIN_KEY}}" > main_key
